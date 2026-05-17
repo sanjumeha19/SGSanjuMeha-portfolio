@@ -6,6 +6,19 @@
 <title>SG.SANJU MEHA — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  *{
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+img,svg{
+  max-width:100%;
+  display:block;
+}
 :root{--bg:#07070f;--bg2:#0c0b1a;--surface:#111023;--surface2:#18163a;--accent:#5b8dee;--accent2:#a78bfa;--gold:#e8c97a;--teal:#34d399;--rose:#f472b6;--rosegold:#e8a598;--rosegold2:#f4c5b8;--text:#eeedf8;--muted:#6d6a8a;--border:rgba(91,141,238,0.15)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -97,7 +110,11 @@ section{position:relative;z-index:1;padding:70px 0 50px}
 
 /* PROJECTS */
 #projects{background:var(--bg2)}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:1.5rem;
+}
 .proj-card{background:linear-gradient(145deg,#16122a,#1e1535);border:1px solid rgba(232,165,152,0.2);border-radius:16px;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
 .proj-card:hover{transform:translateY(-6px);border-color:rgba(232,165,152,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 40px rgba(232,165,152,0.12)}
 .proj-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
@@ -129,7 +146,11 @@ section{position:relative;z-index:1;padding:70px 0 50px}
 
 /* CERTIFICATES */
 #certificates{background:var(--bg2)}
-.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cert-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:1.5rem;
+}
 .cert-card{background:linear-gradient(145deg,#18142e,#201838);border:1px solid rgba(232,165,152,0.2);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
 .cert-card:hover{transform:translateY(-4px);border-color:rgba(232,201,122,0.45);box-shadow:0 16px 50px rgba(0,0,0,0.4),0 0 30px rgba(232,165,152,0.1)}
 .cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rosegold),var(--gold),transparent)}
@@ -522,7 +543,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
             <div class="meta-row"><span>Availability</span><span style="color:var(--teal)">Open to Internship ✓</span></div>
             <div class="meta-row"><span>Education</span><span>B.E. Computer Science and Engineering</span></div>
             <div class="meta-row"><span>Focus</span><span>UI/UX + Frontend + Full-Stack + AI Apps</span></div>
-            <div class="meta-row"><span>Resume</span><b href="SGSANJU MEHA.pdf" download="SGSANJU_MEHA.pdf" class="resume-download">📄 Download</a></div>
+            <div class="meta-row"><span>Resume</span><a href="SGSANJU_MEHA.pdf" download="SGSANJU_MEHA.pdf" class="resume-download">📄 Download</a></div>
           </div>
         </div>
       </div>
