@@ -102,7 +102,21 @@ section{position:relative;z-index:1;padding:70px 0 50px}
 .skill-chip .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .about-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden}
 .about-card::before{content:'';position:absolute;top:-40%;right:-20%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(91,141,238,0.12),transparent 70%);pointer-events:none}
-.about-avatar{width:100%;aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg,var(--surface2),var(--surface));display:flex;align-items:center;justify-content:center;font-size:5rem;margin-bottom:1.5rem;border:1px solid var(--border)}
+.about-avatar{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:1.5rem;gap:0.8rem}
+.avatar-badge{position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center}
+.avatar-badge::before{content:'';position:absolute;inset:-3px;border-radius:20px;background:linear-gradient(135deg,var(--accent),var(--accent2),var(--rosegold),var(--accent));z-index:0;animation:borderSpin 4s linear infinite;background-size:300% 300%}
+@keyframes borderSpin{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.avatar-badge::after{content:'';position:absolute;inset:0;border-radius:18px;box-shadow:0 0 30px rgba(91,141,238,0.4),0 0 60px rgba(167,139,250,0.2);z-index:0}
+.avatar-img-wrap{position:relative;width:160px;height:160px;border-radius:18px;overflow:hidden;z-index:1;border:2px solid rgba(255,255,255,0.05)}
+.avatar-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.avatar-sparkle{position:absolute;font-size:0.8rem;animation:sparkle 2s ease-in-out infinite;z-index:2}
+.avatar-sparkle:nth-child(1){top:-8px;left:-8px;animation-delay:0s}
+.avatar-sparkle:nth-child(2){top:-8px;right:-8px;animation-delay:0.5s}
+.avatar-sparkle:nth-child(3){bottom:-8px;left:-8px;animation-delay:1s}
+.avatar-sparkle:nth-child(4){bottom:-8px;right:-8px;animation-delay:1.5s}
+.avatar-nameplate{text-align:center}
+.avatar-nameplate .name-tag{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+.avatar-nameplate .role-tag{font-size:0.7rem;color:var(--rosegold);letter-spacing:0.12em;text-transform:uppercase;margin-top:2px}
 .about-meta{display:flex;flex-direction:column;gap:0.6rem}
 .meta-row{display:flex;justify-content:space-between;font-size:0.82rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border)}
 .meta-row:last-child{border-bottom:none}
@@ -115,7 +129,7 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:1.5rem;
 }
-.proj-card{background:linear-gradient(145deg,#16122a,#1e1535);border:1px solid rgba(232,165,152,0.2);border-radius:16px;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
+.proj-card{background:linear-gradient(145deg,#130d34,#000000);border:1px solid rgba(232,165,152,0.2);border-radius:16px;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
 .proj-card:hover{transform:translateY(-6px);border-color:rgba(232,165,152,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 40px rgba(232,165,152,0.12)}
 .proj-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
 .proj-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,#16122a 100%)}
@@ -151,7 +165,7 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:1.5rem;
 }
-.cert-card{background:linear-gradient(145deg,#18142e,#201838);border:1px solid rgba(232,165,152,0.2);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
+.cert-card{background:linear-gradient(145deg,#000000,#101335);border:1px solid rgba(232,165,152,0.2);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
 .cert-card:hover{transform:translateY(-4px);border-color:rgba(232,201,122,0.45);box-shadow:0 16px 50px rgba(0,0,0,0.4),0 0 30px rgba(232,165,152,0.1)}
 .cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rosegold),var(--gold),transparent)}
 .cert-card::after{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(232,201,122,0.1),transparent 70%)}
@@ -536,14 +550,28 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
       </div>
       <div class="reveal" style="animation-delay:0.15s">
         <div class="about-card">
-          <div class="about-avatar">👨‍💻</div>
+          <div class="about-avatar">
+            <div class="avatar-badge">
+              <span class="avatar-sparkle">✦</span>
+              <span class="avatar-sparkle">✦</span>
+              <span class="avatar-sparkle">✦</span>
+              <span class="avatar-sparkle">✦</span>
+              <div class="avatar-img-wrap">
+                <img src="profile.png" alt="SG.SANJU MEHA">
+              </div>
+            </div>
+            <div class="avatar-nameplate">
+              <div class="name-tag">SG. SANJU MEHA</div>
+             
+            </div>
+          </div>
           <div class="about-meta">
             <div class="meta-row"><span>Location</span><span>Chennai, India</span></div>
             <div class="meta-row"><span>Experience</span><span>CSE Student / UI/UX Enthusiast</span></div>
             <div class="meta-row"><span>Availability</span><span style="color:var(--teal)">Open to Internship ✓</span></div>
             <div class="meta-row"><span>Education</span><span>B.E. Computer Science and Engineering</span></div>
             <div class="meta-row"><span>Focus</span><span>UI/UX + Frontend + Full-Stack + AI Apps</span></div>
-            <div class="meta-row"><span>Resume</span><a href="SGSANJU_MEHA.pdf" download="SGSANJU_MEHA.pdf" class="resume-download">📄 Download</a></div>
+            <div class="meta-row"><span>Resume</span><a href="SGSANJU_MEHA.pdf" target="_blank" download="SG.SANJU MEHA.pdf" class="resume-download">📄 Download</a></div>
           </div>
         </div>
       </div>
@@ -572,11 +600,23 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
           <div class="proj-tags"><span class="proj-tag">Mobile app</span><span class="proj-tag">Flutter</span><span class="proj-tag">UI/UX Design</span></div>
           <div class="proj-title">Career Musketeer</div>
           <p class="proj-desc">A Flutter-based career guidance mobile app that helps students explore career paths, salary growth, and nearby job opportunities through a premium warrior-themed UI experience.</p>
-          <div class="proj-links"><a href="#" class="proj-link">App Store →</a><a href="https://github.com/sanjumeha19/Career_Guidance-App" target="_blank" class="proj-link">GitHub →</a></div>
+          <div class="proj-links"><a href="https://github.com/sanjumeha19/Career_Guidance-App" target="_blank" class="proj-link">GitHub →</a></div>
         </div>
       </div>
+
+
+ <div class="proj-card reveal" style="animation-delay:0.05s">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0a00,#3d1a00,#5c2d00)">🎨</div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="proj-tag">Figma</span><span class="proj-tag">AI Chatbot</span><span class="proj-tag">build.io</span></div>
+          <div class="proj-title">MiraLook (In Progress)</div>
+          <p class="proj-desc">An AI-powered styling chatbot that helps users create a complete personalised look for different occasions by suggesting AI outfits, makeup, footwear, and accessories images based on body type, skin tone, and preferences.</p>
+          <div class="proj-links"><a href="https://github.com/sanjumeha19/MiraLook-AI-Fashion-Chatbot" target="_blank" class="proj-link">GitHub →</a></div>
+        </div>
+      </div>
+
            <div class="proj-card reveal" style="animation-delay:0.25s">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#0d1a0d,#1a3520,#0d4020)">🧬</div>
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0d1a0d,#1a3520,#0d4020)">🧩</div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Location-Based App</span><span class="proj-tag">Skill Sharing</span><span class="proj-tag">UI/UX Concept</span></div>
           <div class="proj-title">SkillLoop (Concept Stage)</div>
@@ -604,15 +644,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         </div>
       </div>
       
-      <div class="proj-card reveal" style="animation-delay:0.05s">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0a00,#3d1a00,#5c2d00)">🔐</div>
-        <div class="proj-body">
-          <div class="proj-tags"><span class="proj-tag">Figma</span><span class="proj-tag">AI Chatbot</span><span class="proj-tag">build.io</span></div>
-          <div class="proj-title">MiraLook (In Progress)</div>
-          <p class="proj-desc">An AI-powered styling chatbot that helps users create a complete personalised look for different occasions by suggesting AI outfits, makeup, footwear, and accessories images based on body type, skin tone, and preferences.</p>
-          <div class="proj-links"><a href="#" class="proj-link">Live Demo →</a><a href="https://github.com/sanjumeha19/MiraLook-AI-Fashion-Chatbot" target="_blank" class="proj-link">GitHub →</a></div>
-        </div>
-      </div>
+     
 
     </div>
   </div>
@@ -625,34 +657,20 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
     <h2 class="section-title reveal">Hackathon <em style="font-style:italic;color:var(--rose)">Battles</em></h2>
     <div class="hack-timeline">
       <div class="hack-item reveal">
-        <div class="hack-date">November 2024</div>
-        <div class="hack-name">MIT Reality Hack 2024</div>
-        <div class="hack-org">Massachusetts Institute of Technology</div>
-        <p class="hack-desc">Built an AR navigation system for visually impaired users using spatial audio and haptic feedback, winning the Accessibility track.</p>
-        <div class="hack-badges"><span class="badge badge-gold">🥇 1st Place — Accessibility</span><span class="badge badge-blue">AR / XR</span><span class="badge badge-teal">Best UI/UX</span></div>
+        <div class="hack-date">May 2026</div>
+        <div class="hack-name">Technology Infusion Grand Challenge </div>
+        <div class="hack-org">La Trobe University(Australia)</div>
+        <p class="hack-desc">Map My Memoir is a travel journal web application where users can save memories with photos, notes, and location pins on a world map. It focuses on visual storytelling instead of long text lists.</p>
+        <div class="hack-badges"><span class="badge badge-gold">Selected till Finals</span><span class="badge badge-blue">Location</span><span class="badge badge-teal">Hybrid App</span></div>
       </div>
       <div class="hack-item reveal">
-        <div class="hack-date">August 2024</div>
-        <div class="hack-name">ETHGlobal San Francisco</div>
-        <div class="hack-org">Ethereum Foundation</div>
-        <p class="hack-desc">Developed a DeFi protocol for micro-insurance in developing markets, using smart contracts and Chainlink oracles for trustless payouts.</p>
-        <div class="hack-badges"><span class="badge badge-gold">🥈 Runner Up</span><span class="badge badge-blue">Web3 / DeFi</span><span class="badge badge-teal">Sponsor Prize — Chainlink</span></div>
+        <div class="hack-date">January 2026</div>
+        <div class="hack-name">CMR Hackathon</div>
+        <div class="hack-org">CMR College(Hyderabad)</div>
+        <p class="hack-desc">A Flutter-based career guidance mobile app that helps students explore career paths, salary growth, and nearby job opportunities through a premium warrior-themed UI experience.</p>
+        <div class="hack-badges"><span class="badge badge-gold">Selected Top 100 team over India</span><span class="badge badge-blue">Career Guidance</span><span class="badge badge-teal">Hybrid App</span></div>
       </div>
-      <div class="hack-item reveal">
-        <div class="hack-date">March 2024</div>
-        <div class="hack-name">HackMIT Spring 2024</div>
-        <div class="hack-org">MIT Computer Science Department</div>
-        <p class="hack-desc">Created an AI tutor that adapts to individual learning styles in real-time using reinforcement learning from student interaction patterns.</p>
-        <div class="hack-badges"><span class="badge badge-gold">🏆 Best AI Application</span><span class="badge badge-blue">EdTech</span></div>
       </div>
-      <div class="hack-item reveal">
-        <div class="hack-date">January 2024</div>
-        <div class="hack-name">Google Developer Challenge</div>
-        <div class="hack-org">Google LLC</div>
-        <p class="hack-desc">Top 10 Finalist — built a real-time language translation overlay for video calls using Vertex AI and WebRTC.</p>
-        <div class="hack-badges"><span class="badge badge-blue">🎯 Top 10 Finalist</span><span class="badge badge-teal">Google Cloud Prize</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -668,7 +686,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         <div class="cert-name">Azure Developer Associate</div>
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-date">Issued: March 2026 ·  Expires: March 2027</div>
-        <a href="#" class="cert-verify">Verify Credential ↗</a>
+        <a href="Credentials - sanjumehasg-1864 _ Microsoft Learn.pdf" target="_blank" class="cert-verify">Verify Credential ↗</a>
       </div>
 
     <div class="cert-card reveal" style="animation-delay:0.1s">
@@ -676,7 +694,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         <div class="cert-name">Introduction To Internet Of Things</div>
         <div class="cert-issuer">NPTEL</div>
         <div class="cert-date">Issued: April 2025</div>
-        <a href="#" class="cert-verify">Verify Credential ↗</a>
+        <a href="Introduction to IOT.pdf" target="_blank" class="cert-verify">Verify Credential ↗</a>
       </div>
 
 <div class="cert-card reveal" style="animation-delay:0.25s">
@@ -684,7 +702,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         <div class="cert-name">Privacy and Security in Online Social Media</div>
         <div class="cert-issuer">NPTEL</div>
         <div class="cert-date">Issued: October 2025</div>
-        <a href="#" class="cert-verify">Verify Credential ↗</a>
+        <a href="Privacy and Security in Online Social Media.pdf" target="_blank" class="cert-verify">Verify Credential ↗</a>
       </div>
 
       <div class="cert-card reveal">
@@ -692,7 +710,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         <div class="cert-name">Power-BI</div>
         <div class="cert-issuer">Simplilearn</div>
         <div class="cert-date">Issued: August 2025</div>
-        <a href="#" class="cert-verify">Verify Credential ↗</a>
+        <a href="Power BI.pdf" target="_blank" class="cert-verify">Verify Credential ↗</a>
       </div>
       
      
@@ -701,14 +719,14 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         <div class="cert-name">Graphic Design & UI/UX</div>
         <div class="cert-issuer">Simplilearn</div>
         <div class="cert-date">Issued: Feb 2025</div>
-        <a href="#" class="cert-verify">Verify Credential ↗</a>
+        <a href="Graphic Design,Basic UI and UX.pdf" target="_blank" class="cert-verify">Verify Credential ↗</a>
       </div>
       <div class="cert-card reveal" style="animation-delay:0.15s">
         <div class="cert-icon">💼</div>
         <div class="cert-name">Business Analysis & Process Management</div>
         <div class="cert-issuer">Coursera</div>
         <div class="cert-date">Issued: Dec 2024</div>
-        <a href="#" class="cert-verify">Verify Credential ↗</a>
+        <a href="BUISNESS MANAGEMENT AND PROJECT ANALYSIS.pdf" target="_blank" class="cert-verify">Verify Credential ↗</a>
       </div>
       
     </div>
@@ -726,7 +744,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         <div class="social-links">
           <a href="https://www.linkedin.com/in/sanjumeha/" target="_blank"class="social-link"><div class="ico">💼</div><div class="social-info"><span>LinkedIn</span><span>Let's connect professionally</span></div></a>
           <a href="https://github.com/sanjumeha19" target="_blank" class="social-link"><div class="ico">🐙</div><div class="social-info"><span>GitHub</span><span>Explore my projects on GitHub</span></div></a>
-          <a href="sanjumeha19@gmail.com" target="_blank" class="social-link"><div class="ico">📧</div><div class="social-info"><span>Email</span><span>Reach me via email</span></div></a>
+          <a href="mailto:sanjumeha19@gmail.com" target="_blank" class="social-link"><div class="ico">📧</div><div class="social-info"><span>Email</span><span>Reach me via email</span></div></a>
         </div>
       </div>
     </div>
